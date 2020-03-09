@@ -8,16 +8,18 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: true
         },
-        task_description: {
+        taskDescription: {
             type: DataTypes.TEXT,
-            allowNull: false,
+            allowNull: false
         },
-        date_id: {
+        dateId: {
             type: DataTypes.INTEGER,
-            references: 'calendars',
-            referencesKey: 'id', 
-            allowNull: false,
+            references: {
+                model: "calendars",
+                key: "id",
+            },
+            allowNull: false
         }
     });
     return Task;
-}
+};
