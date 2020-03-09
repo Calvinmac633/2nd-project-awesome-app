@@ -4,7 +4,7 @@ module.exports = {
   development: {
     username: process.env.MY_SQL_USERNAME,
     password: process.env.MY_SQL_PASSWORD,
-    database: "passport_demo",
+    database: "calendar_tasks",
     host: "127.0.0.1",
     dialect: "mysql"
   },
