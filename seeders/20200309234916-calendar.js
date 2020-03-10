@@ -1,7 +1,11 @@
+/* eslint-disable no-unused-vars */
+/* npm install mysql2 -g */
+/* sequelize db:seed:all */
+
 "use strict";
 
 module.exports = {
-  up: (queryInterface, Sequelize) => {
+  up: (queryInterface, _Sequelize) => {
     return queryInterface.bulkInsert("Calendars", [
       {
         month: "March",
@@ -223,7 +227,7 @@ module.exports = {
     ]);
   },
 
-  down: (queryInterface, Sequelize) => {
+  down: (queryInterface, _Sequelize) => {
     return queryInterface.bulkDelete("Calendars", null, {});
   }
 };
