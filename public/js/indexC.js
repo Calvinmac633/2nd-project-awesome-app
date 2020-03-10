@@ -13,3 +13,4 @@ $(document).ready(function() {
     console.log("Button clicked");
   });
 });
+//first week of the month
