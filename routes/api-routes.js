@@ -1,53 +1,89 @@
-// Requiring our models and passport as we've configured it
-var db = require("../models");
-var passport = require("../config/passport");
+// *****************************************************************************
+// **** api-routes.js - this file offers a set of routes for displaying and
+// saving data to the db
+// ******************************************************************************
+// *** Dependencies
 
+// Requiring our models
+var db = require("../models");
+
+// Routes =============================================================
 module.exports = function(app) {
-  // Using the passport.authenticate middleware with our local strategy.
-  // If the user has valid login credentials, send them to the members page.
-  // Otherwise the user will be sent an error
-  app.post("/api/login", passport.authenticate("local"), function(req, res) {
-    // Sending back a password, even a hashed password, isn't a good idea
-    res.json({
-      email: req.user.email,
-      id: req.user.id
+
+  // GET route for getting all of the tasks
+  app.get("/api/tasks", function(req, res) {
+    // findAll returns all entries for a table when used with no options
+    db.Task.findAll({}).then(function(dbTask) {
+      // We have access to the todos as an argument inside of the callback function
+      res.json(dbTask);
+    });
+
+  });
+
+  // Get route for retrieving a single task
+  app.get("/api/tasks/:id", function(req, res) {
+    // Here we add an "include" property to our options in our findOne query
+    // We set the value to an array of the models we want to include in a left outer join
+    // In this case, just db.Author
+    db.Task.findOne({
+      where: {
+        id: req.params.id
+      },
+      // include: [db.Calendar]
+    }).then(function(dbTask) {
+      res.json(dbTask);
     });
   });
 
-  // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
-  // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
-  // otherwise send back an error
-  app.post("/api/signup", function(req, res) {
-    db.User.create({
-      email: req.body.email,
-      password: req.body.password
+  // POST route for saving a new task
+  app.post("/api/tasks", function(req, res) {
+    // create takes an argument of an object describing the item we want to insert
+    // into our table. In this case we just we pass in an object with a text and
+    // complete property
+    db.Task.create({
+      title: req.body.title,
+      time: req.body.time,
+      taskDescription: req.body.taskDescription,
+      dateId: req.body.dateId
+    }).then(function(dbTask) {
+      // We have access to the new todo as an argument inside of the callback function
+      res.json(dbTask);
+    });
+
+  });
+
+  // DELETE route for deleting todos. We can get the id of the todo to be deleted
+  // from req.params.id
+  app.delete("/api/tasks/:id", function(req, res) {
+    // Destroy takes in one argument: a "where object describing the todos we want to destroy
+    db.Task.destroy({
+      where: {
+        id: req.params.id
+      }
     })
-      .then(function() {
-        res.redirect(307, "/api/login");
-      })
-      .catch(function(err) {
-        res.status(401).json(err);
+      .then(function(dbTask) {
+        res.json(dbTask);
       });
+
   });
 
-  // Route for logging user out
-  app.get("/logout", function(req, res) {
-    req.logout();
-    res.redirect("/");
-  });
-
-  // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", function(req, res) {
-    if (!req.user) {
-      // The user is not logged in, send back an empty object
-      res.json({});
-    } else {
-      // Otherwise send back the user's email and id
-      // Sending back a password, even a hashed password, isn't a good idea
-      res.json({
-        email: req.user.email,
-        id: req.user.id
+  // PUT route for updating todos. We can get the updated todo data from req.body
+  app.put("/api/tasks", function(req, res) {
+    // Update takes in two arguments, an object describing the properties we want to update,
+    // and another "where" object describing the todos we want to update
+    db.Task.update({
+      title: req.body.title,
+      time: req.body.time,
+      taskDescription: req.body.taskDescription,
+      dateId: req.body.dateId
+    }, {
+      where: {
+        id: req.body.id
+      }
+    })
+      .then(function(dbTask) {
+        res.json(dbTask);
       });
-    }
+
   });
 };
