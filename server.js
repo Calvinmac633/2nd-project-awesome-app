@@ -1,6 +1,6 @@
 // Requiring necessary npm packages
 var express = require("express");
-var session = require("express-session");
+// var session = require("express-session");
 // Requiring passport as we've configured it
 // var passport = require("./config/passport");
 
@@ -17,8 +17,8 @@ app.use(express.static("public"));
 // app.use(
 //   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
 // );
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 // Set Handlebars.
 // var exphbs = require("express-handlebars");
@@ -33,6 +33,6 @@ require("./routes/api-routes.js")(app);
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
+    console.log("App listening on PORT http://localhost:" + PORT);
   });
 });

@@ -9,7 +9,6 @@ var db = require("../models");
 
 // Routes =============================================================
 module.exports = function(app) {
-
   // GET route for getting all of the tasks
   app.get("/api/tasks", function(req, res) {
     // findAll returns all entries for a table when used with no options
@@ -17,7 +16,6 @@ module.exports = function(app) {
       // We have access to the todos as an argument inside of the callback function
       res.json(dbTask);
     });
-
   });
 
   // Get route for retrieving a single task
@@ -28,7 +26,7 @@ module.exports = function(app) {
     db.Task.findOne({
       where: {
         id: req.params.id
-      },
+      }
       // include: [db.Calendar]
     }).then(function(dbTask) {
       res.json(dbTask);
@@ -49,7 +47,6 @@ module.exports = function(app) {
       // We have access to the new todo as an argument inside of the callback function
       res.json(dbTask);
     });
-
   });
 
   // DELETE route for deleting todos. We can get the id of the todo to be deleted
@@ -60,30 +57,29 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       }
-    })
-      .then(function(dbTask) {
-        res.json(dbTask);
-      });
-
+    }).then(function(dbTask) {
+      res.json(dbTask);
+    });
   });
 
   // PUT route for updating todos. We can get the updated todo data from req.body
   app.put("/api/tasks", function(req, res) {
     // Update takes in two arguments, an object describing the properties we want to update,
     // and another "where" object describing the todos we want to update
-    db.Task.update({
-      title: req.body.title,
-      time: req.body.time,
-      taskDescription: req.body.taskDescription,
-      dateId: req.body.dateId
-    }, {
-      where: {
-        id: req.body.id
+    db.Task.update(
+      {
+        title: req.body.title,
+        time: req.body.time,
+        taskDescription: req.body.taskDescription,
+        dateId: req.body.dateId
+      },
+      {
+        where: {
+          id: req.body.id
+        }
       }
-    })
-      .then(function(dbTask) {
-        res.json(dbTask);
-      });
-
+    ).then(function(dbTask) {
+      res.json(dbTask);
+    });
   });
 };
