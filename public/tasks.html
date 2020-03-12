@@ -2,20 +2,24 @@
 <html lang="en">
 
 <head>
+  <title>My calendar</title>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>My Notes</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.1.3/flatly/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-    crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="../public/stylesheets/styleC.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/styleT.css">
+  <link href="https://fonts.googleapis.com/css?family=Bungee+Inline&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Satisfy&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">THE DATE!!!!
+    <a class="navbar-brand" href="/">Note Taker
     </a>
+    <div class="icons">
+      <i class="fas fa-save text-light save-note"></i>
+      <i class="fas fa-pen text-light new-note"></i>
+    </div>
   </nav>
   <div class="container-fluid">
     <div class="row">
@@ -32,7 +36,8 @@
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="../public/js/indexC.js"></script>
+  <script src="js/indexNotes.js"></script>
 </body>
 
 </html>
+

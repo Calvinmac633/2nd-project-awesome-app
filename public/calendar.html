@@ -5,55 +5,54 @@
   <title>My calendar</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <!-- <link href="stylesheets/style.css" rel="stylesheet"> -->
   <link rel="stylesheet" type="text/css" href="../stylesheets/styleC.css">
   <link href="https://fonts.googleapis.com/css?family=Bungee+Inline&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Satisfy&display=swap" rel="stylesheet">
 </head>
 
-<nav class="navbar navbar-dark bg-dark">
+<body>
+  <nav class="navbar navbar-dark bg-dark">
     <ul class="nav navbar-nav">
       <a class="navbar-brand" href="#"></a>
       <li class="active"><a href="#">Home</a></li>
     </ul>
-
-</nav>
-
-
+  </nav>
   <div class="month">
     <p>March</p>
   </div>
-  <div class="container-fluid" >
+  <div class="container-fluid">
     <span>
-  <div class="table-responsive fullCal">
-    <table class="table" id='fullDiv'>
-      <ul id="weekHeader" class = "full-text">
-        <li id="sun">Sunday</li>
-        <li id="mon">Monday</li>
-        <li id="tue">Tuesday</li>
-        <li id="wed">Wednesday</li>
-        <li id="thur">Thursday</li>
-        <li id="fri">Friday</li>
-        <li id="sat">Saturday</li>
-      </ul>
-      <ul id="weekHeader" class ="short-text">
-        <li id="sun">Sun</li>
-        <li id="mon">Mon</li>
-        <li id="tue">Tue</li>
-        <li id="wed">Wed</li>
-        <li id="thur">Thu</li>
-        <li id="fri">Fri</li>
-        <li id="sat">Sat</li>
-      </ul>
+      <div class="table-responsive fullCal">
+        <table class="table" id='fullDiv'>
+          <ul id="weekHeader" class="full-text">
+            <li id="sun">Sunday</li>
+            <li id="mon">Monday</li>
+            <li id="tue">Tuesday</li>
+            <li id="wed">Wednesday</li>
+            <li id="thur">Thursday</li>
+            <li id="fri">Friday</li>
+            <li id="sat">Saturday</li>
+          </ul>
+          <ul id="weekHeader" class="short-text">
+            <li id="sun">Sun</li>
+            <li id="mon">Mon</li>
+            <li id="tue">Tue</li>
+            <li id="wed">Wed</li>
+            <li id="thur">Thu</li>
+            <li id="fri">Fri</li>
+            <li id="sat">Sat</li>
+          </ul>
+      
+      <div class="view-notes">
+        <ul class="days"></ul>
+        </table>
+      </div>
+    </div>
+    </span>
   </div>
- 
-  <div class="view-notes">
-    <ul class="days"></ul>
-    </table>
-  </div>
-</span>
-</div>
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <script src="js/calendar.js"></script>
   <script src="js/indexC.js"></script>
