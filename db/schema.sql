@@ -4,5 +4,39 @@ CREATE DATABASE calendar_tasks;
 USE calendar_tasks;
 
 INSERT INTO tasks(date, note, createdAt, updatedAt)
-VALUES ("03/16/2020", "This is the note for note 1", CURRENT_TIME(), CURRENT_TIME()),
-	("03/23/2020", "This is the note for note 222222", CURRENT_TIME(), CURRENT_TIME());
+VALUES 
+("2020-03-01", "note 1", CURRENT_TIME(), CURRENT_TIME()),
+("2020-03-02", "note 2", CURRENT_TIME(), CURRENT_TIME());
+
+
+("2020-03-01", "note 1", CURRENT_TIME(), CURRENT_TIME()),
+("2020-03-02", "note 2", CURRENT_TIME(), CURRENT_TIME()),
+"2020-03-03",
+"2020-03-04",
+"2020-03-05",
+"2020-03-06",
+"2020-03-07",
+"2020-03-08",
+"2020-03-09",
+"2020-03-10",
+"2020-03-11",
+"2020-03-12",
+"2020-03-13",
+"2020-03-14",
+"2020-03-15",
+"2020-03-16",
+"2020-03-17",
+"2020-03-18",
+"2020-03-19",
+"2020-03-20",
+"2020-03-21",
+"2020-03-22",
+"2020-03-23",
+"2020-03-24",
+"2020-03-25",
+"2020-03-26",
+"2020-03-27",
+"2020-03-28",
+"2020-03-29",
+"2020-03-30",
+"2020-03-31"
