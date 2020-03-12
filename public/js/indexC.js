@@ -1,15 +1,16 @@
-/* eslint-disable quotes */
-var winHeight = $(window).height();
-var height = (winHeight * 16.6666) / 100;
-var lineHeight = height + "px";
 
-$("button").css("line-height", lineHeight);
-$("button").css("height", height);
+// var winHeight = $(window).height();
+// var height = (winHeight * 16.6666) / 100;
+// var lineHeight = height + "px";
+
+
+// $("button").css("line-height", lineHeight);
+// $("button").css("height", height);
 
 ///right code for buttons
 
 $(document).ready(function() {
-  $(document).on("click", ".view-notes", function(e) {
+  $(document).on("click", ".day", function(e) {
     e.preventDefault();
     console.log("Button clicked");
     var date = $(this).id;
@@ -18,8 +19,9 @@ $(document).ready(function() {
       type: "GET",
       data: date
     }).then(function() {
-      console.log(date);
+      console.log(date + "Calvin made this");
     });
+    console.log($(this).attr("id"));
   });
 });
 //first week of the month
