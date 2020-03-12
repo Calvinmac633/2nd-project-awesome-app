@@ -1,17 +1,15 @@
 *, *::before, *::after {
   box-sizing: border-box;
 }
-/* html, body {
+html, body {
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
   font: 18px Helvetica;
-} */
+}
 
 html{
-/* background-color: #09c7fb; */
-/* background-image: linear-gradient(315deg, #09c7fb 0%, #93fb9d 74%); */
 background-image: url(/Earth.jpg);
 background-repeat: no-repeat;
 background-size: cover;
@@ -20,6 +18,7 @@ background-size: cover;
 body{
   background-color: transparent;
 }
+
 #weekHeader {
   position: top;
   margin: 0;
@@ -34,18 +33,6 @@ body{
   color: white;
 
 }
-
-/* #weekHeader {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(50px,1fr));
-  grid-column-gap: 5px;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 24px;
-  color: tomato;
-  /*color: #aaa8a8;*/
-  /* width: 100%;
-  align-self: center;
-} */ */
 
 #fullDiv {
   position: absolute;
@@ -121,7 +108,6 @@ button:hover{
   .full-text { display: none; }
 }
 
-/* .containter{
-
-
+/* .table {
+background-color:rgba(192,192,192,0.3);
 } */
