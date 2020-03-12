@@ -18,6 +18,33 @@ module.exports = function(app) {
     });
   });
 
+  // GET route for getting Luxon
+  app.get("/api/calendar", function(req, res) {
+    const { DateTime } = require("luxon");
+    const now = DateTime.local();
+    //1)what's day of week of 1st of month?
+    const firstOfMonthDayOfWeek = now.startOf("month").weekday;
+    console.log("Frist of Month Day of Week", firstOfMonthDayOfWeek);
+    //how many days in this month?
+    const numberOfDaysInMonth = now.endOf("month").day;
+    console.log("Number of Days in the month", numberOfDaysInMonth);
+
+    const days = [];
+    for (let i = 1; i <= numberOfDaysInMonth; i++) {
+      // create a date time for this month and the i'th day
+      const day = DateTime.local(2020, 3, i).toISODate();
+      // push that to days array
+      days.push(day);
+    }
+
+    // We have access to the todos as an argument inside of the callback function
+    res.json({
+      firstOfMonthDayOfWeek,
+      numberOfDaysInMonth,
+      days
+    });
+  });
+
   // Get route for retrieving a single task
   app.get("/api/tasks/:id", function(req, res) {
     // Here we add an "include" property to our options in our findOne query
