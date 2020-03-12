@@ -2,52 +2,59 @@
 <html lang="en">
 
 <head>
-  <title>Passport Authentication</title>
+  <title>My calendar</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <!-- <link href="stylesheets/style.css" rel="stylesheet"> -->
   <link rel="stylesheet" type="text/css" href="../stylesheets/styleC.css">
   <link href="https://fonts.googleapis.com/css?family=Bungee+Inline&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Satisfy&display=swap" rel="stylesheet">
 </head>
 
-<body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/logout">
-          Logout
-        </a>
-      </div>
-    </div>
-  </nav>
-  <!-- <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Welcome <span class="member-name"></span></h2>
-      </div>
-    </div>
-  </div> -->
-
-  <div class="table-responsive container">
-    <table class="table" id='fullDiv'>
-    <ul id ="dayWeek">
-      <!-- <li id = "sun">SUN</li>
-      <li id = "mon">MON</li>
-      <li id = "tue">TUE</li>
-      <li id = "wed">WED</li>
-      <li id = "thur">THUR</li>
-      <li id = "fri">FRI</li>
-      <li id = "sat">SAT</li>
-    </ul> -->
-  </div>
-  <div class="view-notes">
-    <ul class = "days" >
+<nav class="navbar navbar-dark bg-dark">
+    <ul class="nav navbar-nav">
+      <a class="navbar-brand" href="#"></a>
+      <li class="active"><a href="#">Home</a></li>
     </ul>
-  </table>
-  </div>
 
-  <script src="https://code.jquery.com/jquery-3.4.1.js"></script> 
+</nav>
+
+
+  <div class="month">
+    <p>March</p>
+  </div>
+  <div class="container-fluid" >
+    <span>
+  <div class="table-responsive fullCal">
+    <table class="table" id='fullDiv'>
+      <ul id="weekHeader" class = "full-text">
+        <li id="sun">Sunday</li>
+        <li id="mon">Monday</li>
+        <li id="tue">Tuesday</li>
+        <li id="wed">Wednesday</li>
+        <li id="thur">Thursday</li>
+        <li id="fri">Friday</li>
+        <li id="sat">Saturday</li>
+      </ul>
+      <ul id="weekHeader" class ="short-text">
+        <li id="sun">Sun</li>
+        <li id="mon">Mon</li>
+        <li id="tue">Tue</li>
+        <li id="wed">Wed</li>
+        <li id="thur">Thu</li>
+        <li id="fri">Fri</li>
+        <li id="sat">Sat</li>
+      </ul>
+  </div>
+ 
+  <div class="view-notes">
+    <ul class="days"></ul>
+    </table>
+  </div>
+</span>
+</div>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <script src="js/calendar.js"></script>
   <script src="js/indexC.js"></script>
 

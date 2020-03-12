@@ -1,11 +1,26 @@
-html, body {
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/* html, body {
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
   font: 18px Helvetica;
+} */
+
+html{
+/* background-color: #09c7fb; */
+/* background-image: linear-gradient(315deg, #09c7fb 0%, #93fb9d 74%); */
+background-image: url(/Earth.jpg);
+background-repeat: no-repeat;
+background-size: cover;
 }
-#dayWeek {
+
+body{
+  background-color: transparent;
+}
+#weekHeader {
   position: top;
   margin: 0;
   padding: 0;
@@ -14,7 +29,24 @@ html, body {
   bottom: 0;
   right: 0;
   overflow: hidden; 
+  align-self: center;
+  font-size: 30px;
+  color: white;
+
 }
+
+/* #weekHeader {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(50px,1fr));
+  grid-column-gap: 5px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 24px;
+  color: tomato;
+  /*color: #aaa8a8;*/
+  /* width: 100%;
+  align-self: center;
+} */ */
+
 #fullDiv {
   position: absolute;
   margin: 0;
@@ -24,6 +56,7 @@ html, body {
   bottom: 0;
   right: 0;
   overflow: hidden; 
+  
 }
 
 ul {
@@ -36,32 +69,59 @@ li{
   width: 14.2857%;
   text-align: center;
   list-style-type: none;
-  font-family: 'Bungee Inline', cursive;
+  font-family: 'Satisfy', cursive;
   
 }
 button {
   float: left;
   display: block;
   width: 14.2857%;
+  height: 100px;
   text-align: center;
   list-style-type: none;
-  font-family: 'Bungee Inline', cursive;
+  font-family: 'Satisfy', cursive;
+  background-color: transparent;
+  font-weight: 900;
+  color: white;
+  font-size: 45px;
   
 }
 
-button:nth-child(n+1):nth-child(-n+7) {
-  font-weight: 900;
-  color: #e67e22;
-}
-
-button:nth-child(n+39), button:nth-child(n+8):nth-child(-n+16) {
-  font-weight: 900;
-  color: rgba(0,0,0,.3);
-}
-
-button:hover:nth-child(n+8):nth-child(-n+38), button:nth-child(17){
+button:hover{
   border-radius: 5px;
-  background-color: #1abc9c;
-  color: #ecf0f1;
+  background-color: rgba(245, 211, 22, 0.938);
+  color: #33c27f;
 }
 
+.month{
+  text-align: center;
+  font-family: 'Satisfy', cursive;
+  font-size: 100px;
+  color: white;
+
+}
+
+.fullCal{
+  background-image:red ;
+  opacity: 10;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+
+.short-text{ 
+  display: none; 
+}
+
+@media (max-width: 600px) {
+  .short-text {   
+    display: inline-block;
+    }
+
+  .full-text { display: none; }
+}
+
+/* .containter{
+
+
+} */
