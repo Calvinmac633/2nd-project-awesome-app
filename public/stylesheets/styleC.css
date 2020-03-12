@@ -103,6 +103,7 @@ button:hover{
 @media (max-width: 600px) {
   .short-text {   
     display: inline-block;
+    width: 100%;
     }
 
   .full-text { display: none; }
