@@ -46,17 +46,13 @@ module.exports = function(app) {
   });
 
   // Get route for retrieving a single task
-  app.get("/api/tasks/:id", function(req, res) {
+  app.get("/api/tasks/:date", function(req, res) {
     // Here we add an "include" property to our options in our findOne query
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.Author
-    db.Task.findOne({
-      where: {
-        id: req.params.id
-      }
-      // include: [db.Calendar]
-    }).then(function(dbTask) {
-      res.json(dbTask);
+    db.Tasks.findAll({}).then(function(dbTasks) {
+      console.log(dbTasks);
+      res.json(dbTasks);
     });
   });
 
