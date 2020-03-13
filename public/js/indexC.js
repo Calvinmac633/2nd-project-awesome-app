@@ -12,6 +12,7 @@ $(document).ready(function() {
     e.preventDefault();
     console.log("Button clicked");
     window.location.href = "/task";
+    // console.log(handleTaskEdit());
     var date = $(this).attr("id");
     console.log(date);
     var getNotes = function() {
@@ -24,3 +25,12 @@ $(document).ready(function() {
   });
 });
 //first week of the month
+
+//THIS IS PULLED FROM BLOGGERS ACTIVITY
+function handleTaskEdit() {
+  var currentTask = $(this)
+    .parent()
+    .parent()
+    .data("post");
+  window.location.href = "/task?post_id=" + currentTask.id;
+}
