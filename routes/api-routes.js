@@ -12,7 +12,7 @@ module.exports = function(app) {
   // GET route for getting all of the tasks
   app.get("/api/tasks", function(req, res) {
     // findAll returns all entries for a table when used with no options
-    db.Task.findAll({}).then(function(dbTask) {
+    db.Tasks.findAll({}).then(function(dbTask) {
       // We have access to the todos as an argument inside of the callback function
       res.json(dbTask);
     });
@@ -50,7 +50,7 @@ module.exports = function(app) {
     // Here we add an "include" property to our options in our findOne query
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.Author
-    db.Task.findOne({
+    db.Tasks.findOne({
       where: {
         id: req.params.id
       }
