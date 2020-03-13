@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  const Calendar = sequelize.define("Tasks", {
+  const Task = sequelize.define("Tasks", {
     date: {
       type: DataTypes.STRING,
       allowNull: false
@@ -9,5 +9,5 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   });
-  return Calendar;
+  return Task;
 };
