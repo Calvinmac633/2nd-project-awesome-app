@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     note: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false
     }
   });
