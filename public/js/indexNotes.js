@@ -1,4 +1,4 @@
-// var $noteTitle = $(".note-title");
+var $noteTitle = $(".note-title");
 var $noteText = $(".note-textarea");
 var $saveNoteBtn = $(".save-note");
 var $newNoteBtn = $(".new-note");
@@ -10,7 +10,6 @@ var activeNote = {};
 // A function for getting all notes from the db
 var getNotes = function() {
   return $.ajax({
-    dataType: "json",
     url: "/api/notes",
     method: "GET"
   });
@@ -19,7 +18,6 @@ var getNotes = function() {
 // A function for saving a note to the db
 var saveNote = function(note) {
   return $.ajax({
-    dataType: "json",
     url: "/api/notes",
     data: note,
     method: "POST"
@@ -39,14 +37,14 @@ var renderActiveNote = function() {
   $saveNoteBtn.hide();
 
   if (activeNote.id) {
-    // $noteTitle.attr("readonly", true);
+    $noteTitle.attr("readonly", true);
     $noteText.attr("readonly", true);
-    // $noteTitle.val(activeNote.title);
+    $noteTitle.val(activeNote.title);
     $noteText.val(activeNote.text);
   } else {
-    // $noteTitle.attr("readonly", false);
+    $noteTitle.attr("readonly", false);
     $noteText.attr("readonly", false);
-    // $noteTitle.val("");
+    $noteTitle.val("");
     $noteText.val("");
   }
 };
@@ -54,7 +52,7 @@ var renderActiveNote = function() {
 // Get the note data from the inputs, save it to the db and update the view
 var handleNoteSave = function() {
   var newNote = {
-    // title: $noteTitle.val(),
+    title: $noteTitle.val(),
     text: $noteText.val()
   };
 
@@ -98,8 +96,7 @@ var handleNewNoteView = function() {
 // If a note's title or text are empty, hide the save button
 // Or else show it
 var handleRenderSaveBtn = function() {
-  // if (!$noteTitle.val().trim() || !$noteText.val().trim()) {
-  if (!$noteText.val().trim()) {
+  if (!$noteTitle.val().trim() || !$noteText.val().trim()) {
     $saveNoteBtn.hide();
   } else {
     $saveNoteBtn.show();
@@ -139,7 +136,7 @@ $saveNoteBtn.on("click", handleNoteSave);
 $noteList.on("click", ".list-group-item", handleNoteView);
 $newNoteBtn.on("click", handleNewNoteView);
 $noteList.on("click", ".delete-note", handleNoteDelete);
-// $noteTitle.on("keyup", handleRenderSaveBtn);
+$noteTitle.on("keyup", handleRenderSaveBtn);
 $noteText.on("keyup", handleRenderSaveBtn);
 
 // Gets and renders the initial list of notes
