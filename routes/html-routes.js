@@ -17,7 +17,7 @@ module.exports = function(app) {
   });
 
   // cms route loads cms.html
-  app.get("/task", function(req, res) {
+  app.get("/task/:date", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/tasks.html"));
   });
 
