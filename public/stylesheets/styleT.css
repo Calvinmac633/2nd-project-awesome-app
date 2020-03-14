@@ -3,6 +3,33 @@ html, body {
     margin: 0;
     padding: 0;
   }
+  body {
+    background-image: url(/greenwater.jpg);
+    background-repeat: no-repeat;
+background-size: cover;
+
+  }
+  #headerDate {
+    text-align: center;
+    font-family: 'Satisfy', cursive;
+    font-size: 3rem;
+    color: rgb(255, 123, 123);
+    margin: 0 auto;
+    
+  }
+
+  .navbar {
+    border-bottom: black 3px solid;
+    /* margin: 0 5%; */
+
+    /* display: flex;
+    justify-content: center; */
+    
+  }
+  .card, .note-textarea {
+    background: transparent;
+    border-right: 3px black solid;
+  }
   
   .save-note {
     display: none;
@@ -20,6 +47,7 @@ html, body {
     width: 100%;
     outline: none;
     border: none;
+    font-weight: 600;
   }
   
   .note-textarea {
@@ -79,6 +107,12 @@ html, body {
     background-image: -webkit-linear-gradient(270deg,rgba(192,192,192,0.3) 0%,rgba(192,192,192,0.3) 100%);
     background-image: linear-gradient(180deg,rgba(192,192,192,0.3) 0%,rgba(192,192,192,0.3) 100%);
   };
+
+  .list-group-item{
+    background: transparent;
+  }
+
+ 
 
 
   
