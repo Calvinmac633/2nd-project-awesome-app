@@ -16,14 +16,34 @@ var getNotes = function() {
   });
 };
 
+// A function for getting all notes from the db
+var getNote1 = function() {
+  const date = window.location.pathname.split("/")[2];
+  if (date) {
+    return $.ajax({
+      dataType: "json",
+      url: `/api/tasks/${date}`,
+      method: "GET"
+    });
+  } else {
+    console.warn("date is undefined");
+  }
+};
+console.log(getNote1());
 // A function for saving a note to the db
 var saveNote = function(note) {
-  return $.ajax({
-    dataType: "json",
-    url: "/api/tasks",
-    data: note,
-    method: "POST"
-  });
+  const date = window.location.pathname.split("/")[2];
+  note.date = date;
+  if (note) {
+    return $.ajax({
+      dataType: "json",
+      url: "/api/tasks",
+      data: note,
+      method: "POST"
+    });
+  } else {
+    console.warn("note is undefined");
+  }
 };
 
 // A function for deleting a note from the db
@@ -34,10 +54,11 @@ var deleteNote = function(id) {
   });
 };
 
+
 // If there is an activeNote, display it, otherwise render empty inputs
 var renderActiveNote = function() {
   $saveNoteBtn.hide();
-
+  getNote1();
   if (activeNote.id) {
     // $noteTitle.attr("readonly", true);
     $noteText.attr("readonly", true);
