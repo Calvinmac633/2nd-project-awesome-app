@@ -12,9 +12,9 @@ module.exports = function(app) {
   // GET route for getting all of the tasks
   app.get("/api/tasks", function(req, res) {
     // findAll returns all entries for a table when used with no options
-    db.Task.findAll({}).then(function(dbTask) {
+    db.Tasks.findAll({}).then(function() {
       // We have access to the todos as an argument inside of the callback function
-      res.json(dbTask);
+      res.json();
     });
   });
 
@@ -61,13 +61,14 @@ module.exports = function(app) {
     // create takes an argument of an object describing the item we want to insert
     // into our table. In this case we just we pass in an object with a text and
     // complete property
-    db.Task.create({
-      title: req.body.title,
-      time: req.body.time,
-      taskDescription: req.body.taskDescription,
-      dateId: req.body.dateId
+    console.log(req.body.text);
+    console.log(req);
+    db.Tasks.create({
+      date: req.body.date,
+      note: req.body.text
     }).then(function(dbTask) {
       // We have access to the new todo as an argument inside of the callback function
+      console.log(dbTask);
       res.json(dbTask);
     });
   });
@@ -76,7 +77,7 @@ module.exports = function(app) {
   // from req.params.id
   app.delete("/api/tasks/:id", function(req, res) {
     // Destroy takes in one argument: a "where object describing the todos we want to destroy
-    db.Task.destroy({
+    db.Tasks.destroy({
       where: {
         id: req.params.id
       }
@@ -89,12 +90,10 @@ module.exports = function(app) {
   app.put("/api/tasks", function(req, res) {
     // Update takes in two arguments, an object describing the properties we want to update,
     // and another "where" object describing the todos we want to update
-    db.Task.update(
+    db.Tasks.update(
       {
-        title: req.body.title,
-        time: req.body.time,
-        taskDescription: req.body.taskDescription,
-        dateId: req.body.dateId
+        date: req.body.date,
+        note: req.body.note
       },
       {
         where: {
