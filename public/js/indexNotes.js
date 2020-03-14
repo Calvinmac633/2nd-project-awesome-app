@@ -2,16 +2,18 @@
 var $noteText = $(".note-textarea");
 var $saveNoteBtn = $(".save-note");
 var $newNoteBtn = $(".new-note");
-var $noteList = $(".list-container .list-group");
+var $noteList = $(".list-group");
 
 // activeNote is used to keep track of the note in the textarea
 var activeNote = {};
 
 // A function for getting all notes from the db
 var getNotes = function() {
+  const date = window.location.pathname.split("/")[2];
+
   return $.ajax({
     dataType: "json",
-    url: "/api/tasks",
+    url: `/api/tasks/${date}`,
     method: "GET"
   });
 };
@@ -29,7 +31,7 @@ var getNote1 = function() {
     console.warn("date is undefined");
   }
 };
-console.log(getNote1());
+// console.log(getNote1());
 // A function for saving a note to the db
 var saveNote = function(note) {
   const date = window.location.pathname.split("/")[2];
@@ -137,7 +139,7 @@ var renderNoteList = function(notes) {
     var note = notes[i];
 
     var $li = $("<li class='list-group-item'>").data(note);
-    var $span = $("<span>").text(note.title);
+    var $span = $("<span>").text(note.note);
     var $delBtn = $(
       "<i class='fas fa-trash-alt float-right text-danger delete-note'>"
     );
