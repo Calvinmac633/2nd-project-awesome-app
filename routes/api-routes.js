@@ -61,14 +61,12 @@ module.exports = function(app) {
     // create takes an argument of an object describing the item we want to insert
     // into our table. In this case we just we pass in an object with a text and
     // complete property
-    console.log(req.body.text);
-    console.log(req);
+    console.log(req.body);
     db.Tasks.create({
       date: req.body.date,
-      note: req.body.text
+      note: req.body.note
     }).then(function(dbTask) {
       // We have access to the new todo as an argument inside of the callback function
-      console.log(dbTask);
       res.json(dbTask);
     });
   });
