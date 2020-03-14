@@ -25,12 +25,3 @@ $(document).ready(function() {
   });
 });
 //first week of the month
-
-//THIS IS PULLED FROM BLOGGERS ACTIVITY
-function handleTaskEdit() {
-  var currentTask = $(this)
-    .parent()
-    .parent()
-    .data("post");
-  window.location.href = "/task?post_id=" + currentTask.id;
-}
