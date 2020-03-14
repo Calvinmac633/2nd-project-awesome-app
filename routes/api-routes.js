@@ -51,7 +51,7 @@ module.exports = function(app) {
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.Author
     db.Tasks.findAll({}).then(function(dbTasks) {
-      console.log(dbTasks);
+      console.log(dbTasks.Tasks);
       res.json(dbTasks);
     });
   });
