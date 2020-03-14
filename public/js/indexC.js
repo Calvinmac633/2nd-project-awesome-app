@@ -10,7 +10,27 @@
 $(document).ready(function() {
   $(document).on("click", ".day", function(e) {
     e.preventDefault();
-    console.log($(this).attr("id"));
+    console.log("Button clicked");
+    window.location.href = "/task";
+    // console.log(handleTaskEdit());
+    var date = $(this).attr("id");
+    console.log(date);
+    var getNotes = function() {
+      return $.ajax({
+        url: "/api/tasks/" + date,
+        method: "GET"
+      });
+    };
+    getNotes(date);
   });
 });
 //first week of the month
+
+//THIS IS PULLED FROM BLOGGERS ACTIVITY
+function handleTaskEdit() {
+  var currentTask = $(this)
+    .parent()
+    .parent()
+    .data("post");
+  window.location.href = "/task?post_id=" + currentTask.id;
+}
